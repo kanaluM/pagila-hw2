@@ -4,3 +4,10 @@
  * HINT:
  * Use `unnest(special_features)` in a subquery.
  */
+
+SELECT unnest AS special_features, 
+       count(unnest)
+FROM (SELECT unnest(special_features)
+      FROM film) AS t
+GROUP BY unnest
+ORDER BY unnest ASC;

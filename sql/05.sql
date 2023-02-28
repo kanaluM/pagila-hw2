@@ -9,3 +9,10 @@
  * HINT:
  * This can be solved using either a LEFT JOIN or the NOT IN operator.
  */
+
+SELECT actor.last_name, actor.first_name
+FROM actor
+LEFT JOIN customer USING (last_name, first_name)
+WHERE customer.last_name IS NULL AND
+      customer.first_name IS NULL
+ORDER BY last_name ASC, first_name ASC;
